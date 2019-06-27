@@ -1,12 +1,14 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}">
     <title>The Chat App</title>
   </head>
   <body>
+    <div class="navBar">
 
-    
+    </div>
     <div>
       {{component}}
     </div>
