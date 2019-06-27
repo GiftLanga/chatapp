@@ -8,16 +8,11 @@
   <body>
     <div class="navBar">
       <div class="siteName"> The Chat App</div>
-      {% if loggedin is False%}
-        <div>
-          <input type="text" placeholder="username" />
-          <input type="password" placeholder="password" />
-        </div>
-      {%endif%}
+      {% block loginForm%}
+      {%endblock%}
     </div>
-    <div>
-      {{component}}
-    </div>
+    {%block content %}
+    {% endblock %}
 
   </body>
 </html>
