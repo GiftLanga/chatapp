@@ -2,4 +2,8 @@
   width: 100%;
   min-height: 50px;
   background-color: #bf5600;
+  display: flex;
+  padding: 10px 10px;
+  justify-content: space-between;
+  align-items: center;
 }

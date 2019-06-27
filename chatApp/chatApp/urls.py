@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from chatApp import views
 
 urlpatterns = [
+    path('', views.index),
     path('admin/', admin.site.urls),
-    path('auth/', include('author.urls'))
+    path('auth/', include('author.urls')),
 ]
+
+handler404 = 'chatApp.views.view_404'
