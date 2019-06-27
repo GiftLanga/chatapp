@@ -1,0 +1,14 @@
+.registerForm,
+.registerForm >form{
+  width: 60%;
+  min-width: 400px;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+
+.registerForm input {
+  margin: 5px 0px;
+}
