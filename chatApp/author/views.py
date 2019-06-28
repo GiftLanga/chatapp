@@ -1,6 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from author import models
 
 def authenticate(request):
-  my_dict = {'component':'<h1> THe component </h1>'}
-  return render(request, 'index.html', context=my_dict)
+  if(request.method == "POST"):
+    form  = request.POST.dict()
+    username = form.get("username")
+    password = form.get("password")
+    return render(request, 'chatGround/chatGround.html', context=None)#redirect
+  else:
+    return redirect('/')

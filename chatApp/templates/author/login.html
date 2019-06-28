@@ -1,7 +1,12 @@
+{% load staticfiles %}
+<script type="text/javascript" src="{% static  "js/login.js" %}" > </script>
 <div>
-  <form>
-    <input type="text" placeholder="username" />
-    <input type="password" placeholder="password" />
+  <form name="loginForm" action="auth/login/" 
+    method="POST" enctype="application/json"
+    onsubmit="return validateLogin(event)">
+    {% csrf_token %}
+    <input type="text" placeholder="username" name="username"/>
+    <input type="password" placeholder="password" name="password"/>
     <input type="submit" value="Login" />
   </form>
 </div>
