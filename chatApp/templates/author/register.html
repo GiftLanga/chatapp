@@ -2,9 +2,15 @@
 <link rel="stylesheet" type="text/css" href="{% static "css/auth.css" %}">
 <div class="registerForm">
   <form>
-    <input type="text" placeholder="username" />
-    <input type="password" placeholder="password" />
-    <input type="password" placeholder="repeat password" />
+    {% csrf_token %}
+    {{ userDetailsForm.first_name }}
+    {{ userDetailsForm.last_name }}
+    {{ registrationForm.gender }}
+    {{ userDetailsForm.username }}
+    {{ userDetailsForm.errors.username }}
+    {{ userDetailsForm.email }}
+    {{ userDetailsForm.password }}
+    {{ userDetailsForm.confirm_password }}
     <input type="submit" value="Register" />
   </form>
 </div>
