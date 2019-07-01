@@ -13,12 +13,10 @@ def authenticate(request):
 
 def register(request):
   if request.method == "POST":
-    print("posting")
     user_details_form = UserDetailsForm(data=request.POST)
     registration_form = RegistrationForm(data=request.POST)
 
     if user_details_form.is_valid() and registration_form.is_valid():
-      print("valid")
       user  = user_details_form.save()
       user.set_password(user.password)
       user.save()

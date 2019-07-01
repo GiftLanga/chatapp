@@ -6,4 +6,4 @@ class UserDetails(models.Model):
   gender = models.CharField(max_length=6)
 
   def __str__(self):
-    return self.user.model.username
+    return self.user.username
