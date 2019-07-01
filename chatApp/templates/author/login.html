@@ -9,4 +9,8 @@
     {{ loginForm.password }}
     <input type="submit" value="Login" />
   </form>
+
+  {% block modal %}
+    {% include 'modal.html'%}
+  {% endblock %}
 </div>

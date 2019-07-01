@@ -1,13 +1,29 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from author.forms import LoginForm, RegistrationForm, UserDetailsForm
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages
 
-def authenticate(request):
+
+def loginUser(request):
   if(request.method == "POST"):
     form  = request.POST.dict()
     username = form.get("username")
     password = form.get("password")
-    return render(request, 'chatGround/chatGround.html', context=None)#redirect
+
+    user = authenticate(username=username, password=password)
+    if user:
+      if user.is_active:
+        login(request, user)
+        return render(request, 'chatGround/chatGround.html', context=None)
+      else:
+        messages.add_message(request, messages.ERROR, 'Your account is not active')
+        return redirect('/')
+    else:
+      messages.add_message(request, messages.ERROR, 'Invalid login details')
+      return redirect('/')
   else:
     return redirect('/')
 
@@ -31,7 +47,6 @@ def register(request):
         'userDetailsForm': user_details_form,
         'loginForm': LoginForm(),
       }
-      print(user_details_form.errors, registration_form.errors)
       return render(request, 'home.html', context=my_dict)
   else:
     return redirect('/')
