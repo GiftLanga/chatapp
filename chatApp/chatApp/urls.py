@@ -21,6 +21,7 @@ urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('auth/', include('author.urls')),
+    path('chatGround/', include('chatGroundApp.urls')),
 ]
 
 handler404 = 'chatApp.views.view_404'

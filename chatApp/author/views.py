@@ -17,10 +17,7 @@ def loginUser(request):
     if user:
       if user.is_active:
         login(request, user)
-        my_dict = {
-          "username": request.user.username
-        }
-        return render(request, 'chatGround/chatGround.html', context=my_dict)
+        return redirect('/chatGround/')
       else:
         messages.add_message(request, messages.ERROR, 'Your account is not active')
         return redirect('/')
