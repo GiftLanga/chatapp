@@ -1,5 +1,16 @@
 {% extends 'index.html'%}
 
+{% block loginForm%}
+  <div>
+    <form name="loginForm" action="{% url 'logout' %}" 
+      method="POST" enctype="application/json">
+      {% csrf_token %}
+      <label>{{username}}</label>
+      <input type="submit" value="Logout" />
+    </form>
+  </div>
+{% endblock %}
+
 {%block content%}
 <div>
   ChatGround

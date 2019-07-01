@@ -17,7 +17,10 @@ def loginUser(request):
     if user:
       if user.is_active:
         login(request, user)
-        return render(request, 'chatGround/chatGround.html', context=None)
+        my_dict = {
+          "username": request.user.username
+        }
+        return render(request, 'chatGround/chatGround.html', context=my_dict)
       else:
         messages.add_message(request, messages.ERROR, 'Your account is not active')
         return redirect('/')
@@ -40,7 +43,7 @@ def register(request):
       register = registration_form.save(commit=False)
       register.user = user
       register.save()
-      return authenticate(request)
+      return loginUser(request)
     else:
       my_dict = {
         'registrationForm': registration_form,
@@ -48,5 +51,12 @@ def register(request):
         'loginForm': LoginForm(),
       }
       return render(request, 'home.html', context=my_dict)
+  else:
+    return redirect('/')
+
+def logoutUser(request):
+  if(request.method == "POST"):
+    logout(request)
+    return redirect('/')
   else:
     return redirect('/')
