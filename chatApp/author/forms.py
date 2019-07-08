@@ -8,12 +8,12 @@ class LoginForm(forms.ModelForm):
     fields = ('username', 'password',)
     widgets = {
       'username': forms.TextInput(attrs = {'placeholder': 'Username'}),
-      'password': forms.TextInput(attrs = {'placeholder': 'Password'})
+      'password': forms.PasswordInput(attrs = {'placeholder': 'Password'})
     }
 
 class UserDetailsForm(forms.ModelForm):
   confirm_password = forms.CharField(label='Confirm Password', widget =
-      forms.TextInput(attrs = {'placeholder': 'Confirm Password'}),
+      forms.PasswordInput(attrs = {'placeholder': 'Confirm Password'}),
     )
   class Meta():
     model = User

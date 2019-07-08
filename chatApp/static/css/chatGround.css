@@ -1,0 +1,26 @@
+.chatground-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chatground-container > h2 {
+  text-align: center;
+  width: 100%;
+}
+
+.chatground-body {
+  display: flex;    
+  border: 1px solid orange;
+  width: 100%;
+  min-height: 400px;
+}
+
+.chatground-users {
+  width: 30%;
+  border: 1px solid orange;
+}
+
+.chatground-space {
+  width: 70%;
+  border: 1px solid orange;
+}

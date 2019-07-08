@@ -1,5 +1,5 @@
 {% extends 'index.html'%}
-
+{% load staticfiles %}
 {% block loginForm%}
   <div>
     <form name="loginForm" action="{% url 'logout' %}" 
@@ -12,7 +12,18 @@
 {% endblock %}
 
 {%block content%}
-<div>
-  ChatGround
+<link rel="stylesheet" type="text/css" href="{% static "css/chatGround.css" %}">
+<div class="chatground-container">
+  <h2>ChatGround</h2>
+  <div class="chatground-body">
+    <div class="chatground-users">
+      {% block availableUsers%}
+      {% endblock %}
+    </div>
+    <div class="chatground-space">
+      {% block chatSpace%}
+      {% endblock %}
+    </div>
+  </div>
 </div>
 {% endblock%}
