@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  chatapp:
+    build: .
+    volumes:
+      - .:/opt/services/chatapp/src
+    ports:
+      - 8000:8000
