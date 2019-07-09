@@ -26,9 +26,9 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = 'xra+f(20nl)21zi67@!gnoyjtgy58!3frs4n1j90*$e!rg%n^j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8db92ab2.ngrok.io']
 
 
 # Application definition
