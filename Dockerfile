@@ -1,12 +1,18 @@
 FROM python:3.6
 
-RUN mkdir -p /opt/services/chatApp
-WORKDIR /opt/services/chatApp
+RUN mkdir -p /opt/services
+WORKDIR /opt/services
 
-COPY . /opt/services/chatApp
+RUN apt-get update
+RUN apt-get install nano
+RUN apt-get install git
 
-RUN pip install -r ./requirements.txt
+RUN git clone https://github.com/GiftLanga/chatapp.git
+
+WORKDIR /opt/services/chatapp
+
+RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--chdir", "chatApp", "--bind", ":8000", "chatApp.wsgi:application"]
+CMD git pull && gunicorn --chdir chatApp --bind :8000 chatApp.wsgi:application
