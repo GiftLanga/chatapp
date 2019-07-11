@@ -28,7 +28,7 @@ SECRET_KEY = 'xra+f(20nl)21zi67@!gnoyjtgy58!3frs4n1j90*$e!rg%n^j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['b9b389bb.ngrok.io']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'author',
+    'chatGroundApp',
 ]
 
 MIDDLEWARE = [
